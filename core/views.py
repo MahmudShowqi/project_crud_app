@@ -35,5 +35,14 @@ def student_list(request):
     except Student.DoesNotExist:
 
         return HttpResponse("no student is available")
+    
+
+def student_delet(request,id):
+
+    student = Student.objects.get(id=id)
+
+    student.delete()
+
+    return redirect('student_list')
 
 
